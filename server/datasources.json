@@ -1,6 +1,32 @@
 {
   "db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "dailylacto",
+    "password": "",
     "name": "db",
-    "connector": "memory"
+    "user": "me",
+    "connector": "mongodb",
+    "useNewUrlParser":true
+  },
+  "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "yaswanthkoneri@gmail.com",
+          "pass": "Yashu.1709"
+        }
+      }
+    ]
   }
 }
