@@ -8,7 +8,7 @@
     "name": "db",
     "user": "me",
     "connector": "mongodb",
-    "useNewUrlParser":true
+    "useNewUrlParser": true
   },
   "emailDs": {
     "name": "emailDs",
