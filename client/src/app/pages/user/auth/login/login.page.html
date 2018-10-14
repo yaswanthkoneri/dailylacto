@@ -16,11 +16,11 @@
           </div>
         </div>
         <div *ngIf="userIdSigninForm.get('email').touched">
-          <div class="error-msg" *ngIf="userIdSigninForm.get('email').errors?.required">{{
-            'Please provide your email' }}
+          <div class="error-msg" *ngIf="userIdSigninForm.get('email').errors?.required">
+            {{ 'Please provide your email' }}
           </div>
-          <div class="error-msg" *ngIf="userIdSigninForm.get('email').errors?.email">{{ 'Please provide the correct email address'
-            }}
+          <div class="error-msg" *ngIf="userIdSigninForm.get('email').errors?.email">
+            {{ 'Please provide the correct email address' }}
           </div>
         </div>
       </div>
@@ -41,11 +41,11 @@
           </div>
         </div>
         <div *ngIf="userIdSigninForm.get('password').touched">
-          <div class="error-msg" *ngIf="userIdSigninForm.get('password').errors?.required">{{
-            'We need your password: We won’t tell anyone. Promise.' }}
+          <div class="error-msg" *ngIf="userIdSigninForm.get('password').errors?.required">
+            {{ 'We need your password: We won’t tell anyone. Promise.' }}
           </div>
-          <div class="error-msg" *ngIf="userIdSigninForm.get('password').errors?.minlength">{{
-            'Password minimum length is 6 characters' }}
+          <div class="error-msg" *ngIf="userIdSigninForm.get('password').errors?.minlength">
+            {{ 'Password minimum length is 6 characters' }}
           </div>
         </div>
       </div>
