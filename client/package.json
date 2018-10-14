@@ -1,6 +1,6 @@
 {
-  "name": "dailylacto",
-  "version": "0.0.1",
+  "name": "dailylacto-client",
+  "version": "1.0.0",
   "author": "Faisal Ali",
   "homepage": "http://ionicframework.com/",
   "scripts": {
