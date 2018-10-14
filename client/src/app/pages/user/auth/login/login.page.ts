@@ -39,4 +39,8 @@ export class LoginPage implements OnInit {
     this.location.back();
   }
 
+  changeTextPassword() {
+    this.isPasswordFiled = !this.isPasswordFiled;
+  }
+
 }
