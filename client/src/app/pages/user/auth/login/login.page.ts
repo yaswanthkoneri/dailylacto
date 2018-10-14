@@ -11,14 +11,29 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 export class LoginPage implements OnInit {
+  isPasswordFiled = true;
+  userIdSigninForm: FormGroup;
+  isLoginSuccessful = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private location: Location
-  ) { }
+  ) {
+    this.userIdSigninForm = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+    });
+  }
 
   ngOnInit() {}
+
+  signIn() {
+  }
+
+  goToPage(pageName) {
+    this.router.navigateByUrl(pageName);
+  }
 
   goBack() {
     this.location.back();
