@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<ion-content>
+  <div class="main-content w-700">
+    <form class="form-section" padding [formGroup]="userIdSigninForm">
+      
+      <div class="form-group"
+            [class.error]="userIdSigninForm.get('email').touched && !userIdSigninForm.get('email').valid">
+        <ion-label class="login-label" for="email" text-capitalize>{{ 'Email' }}
+        </ion-label>
+        <div class="form-input">
+          <ion-input id="email" placeholder="{{ 'Enter Your Email' }}" inputmode="email"
+                      formControlName="email"></ion-input>
+          <div class="icons">
+            <ion-icon name="alert"></ion-icon>
+          </div>
+        </div>
+        <div *ngIf="userIdSigninForm.get('email').touched">
+          <div class="error-msg" *ngIf="userIdSigninForm.get('email').errors?.required">
+            {{ 'Please provide your email' }}
+          </div>
+          <div class="error-msg" *ngIf="userIdSigninForm.get('email').errors?.email">
+            {{ 'Please provide the correct email address' }}
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group"
+            [class.error]="userIdSigninForm.get('password').touched && !userIdSigninForm.get('password').valid">
+        <ion-label class="login-label" for="password" text-capitalize>{{ 'Password' }}
+        </ion-label>
+        <div class="form-input">
+          <ion-input [type]="isPasswordFiled ? 'password' : 'text'"
+                      [inputmode]="isPasswordFiled ? 'password' : 'text'" no-border
+                      placeholder="{{ 'Enter Your Password' }}"
+                      formControlName="password" id="password"></ion-input>
+          <div class="icons">
+            <ion-icon (click)="changeTextPassword()" [name]="isPasswordFiled ? 'eye' : 'eye-off'"
+                      margin-end-half></ion-icon>
+            <ion-icon name="alert"></ion-icon>
+          </div>
+        </div>
+        <div *ngIf="userIdSigninForm.get('password').touched">
+          <div class="error-msg" *ngIf="userIdSigninForm.get('password').errors?.required">
+            {{ 'We need your password: We won’t tell anyone. Promise.' }}
+          </div>
+          <div class="error-msg" *ngIf="userIdSigninForm.get('password').errors?.minlength">
+            {{ 'Password minimum length is 6 characters' }}
+          </div>
+        </div>
+      </div>
+      
+      <div class="remember-block" flex align-items-center justify-content-between>
+        <ion-item class="remember-me" no-padding>
+          <ion-checkbox color="dark" checked></ion-checkbox>
+          {{ 'Remember Me' }}
+        </ion-item>
+        <a class="forgot-pwd" (click)="goToPage('password-reset')">{{ 'Forgot Password?' }}?</a>
+      </div>
+    </form>
+    
+    
+    <div class="login-with-google" text-center>
+      <button class="btn-google" (click)="googleSignIn()">{{ 'Sign in with Google' }}
+      </button>
+    </div>
+
+    <div class="login-footer" padding>
+      <p class="dont-have-account" text-center>{{ 'Don\'t have an account' }}?
+        <span text-capitalize (click)="goToPage('signup')">{{ 'Register' }}</span>
+      </p>
+      <ion-button color="success" class="btn-success" text-capitalize expand="block" mode="ios" (click)="signIn()"
+                  [class.disabled]="!userIdSigninForm.valid">{{ 'Sign In' }}
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>
