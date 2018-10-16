@@ -1,6 +1,7 @@
 {
   "name": "dailylacto",
   "version": "1.0.0",
+  "author": "Yaswanth Koneri",
   "main": "server/server.js",
   "engines": {
     "node": ">=4"
