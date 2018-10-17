@@ -1,10 +1,16 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button *ngIf="!showBackButton"></ion-menu-button>
+      <ion-menu-button *ngIf="showBackButton" (click)="goBack()"></ion-menu-button>
+      <!-- <ion-icon *ngIf="showBackButton" name="arrow-round-back"></ion-icon> -->
     </ion-buttons>
     <ion-title>
-      Home
+      {{title}}
     </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="showSubHeader">
+    <ion-title>Subheader</ion-title>
   </ion-toolbar>
 </ion-header>
