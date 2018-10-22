@@ -1,0 +1,47 @@
+{
+  "name": "build-scripts-fai",
+  "version": "1.0.0",
+  "main": "fai-ionic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "build",
+    "client",
+    "server"
+  ],
+  "author": "faisal ali",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "chokidar": "^1.7.0",
+    "co": "^4.6.0",
+    "commander": "^2.10.0",
+    "copy-dir": "^0.3.0",
+    "debug": "^2.6.8",
+    "ejs": "^2.5.6",
+    "fs-extra": "^3.0.1",
+    "mustache": "^2.3.0",
+    "node-cmd": "^3.0.0",
+    "prompt": "^1.0.0",
+    "reflect-metadata": "^0.1.10",
+    "rimraf": "^2.6.1",
+    "simple-git": "^1.70.0",
+    "ts-node": "^3.2.0",
+    "typescript": "^2.4.1",
+    "typescript-compiler": "^1.4.1-2"
+  },
+  "description": "Command line tool for martjack platform",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "eslint": "^4.1.1",
+    "eslint-config-node": "^1.6.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
+    "mocha": "^3.4.2"
+  }
+}

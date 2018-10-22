@@ -13,9 +13,9 @@
     },
     "helmet#xssFilter": {},
     "helmet#frameguard": {
-      "params": {
-        "action": "deny"
-      }
+      "params": [
+        "deny"
+       ]
     },
     "helmet#hsts": {
       "params": {
@@ -40,9 +40,17 @@
       ]
     }
   },
-  "files": {},
+  "files": {
+    "./middleware/static": [
+      {
+        "params": ["$!../client", { "index": false }]
+      }
+    ]
+  },
   "final": {
-    "loopback#urlNotFound": {}
+    "./middleware/angular": {
+      "params": ["$!../client"]
+    }
   },
   "final:after": {
     "strong-error-handler": {}
