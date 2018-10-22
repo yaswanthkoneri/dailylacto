@@ -2,8 +2,14 @@
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+const path = require('path');
 
 var app = module.exports = loopback();
+
+// Catch all other routes and return the index file
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
+});
 
 app.start = function() {
   // start the web server
