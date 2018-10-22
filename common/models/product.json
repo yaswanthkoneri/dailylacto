@@ -7,18 +7,27 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "title": {
       "type": "string",
       "required": true
     },
     "description": {
       "type": "string"
     },
+    "imageUrl": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
     "createdAt": {
       "type": "date"
     },
     "quantity": {
       "type": "number"
+    },
+    "meta":{
+      "type":"object"
     }
   },
   "validations": [],
