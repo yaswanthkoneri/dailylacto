@@ -5,6 +5,38 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
+var loopbackPassport = require('loopback-component-passport');
+var PassportConfigurator = loopbackPassport.PassportConfigurator;
+var passportConfigurator = new PassportConfigurator(app);
+
+boot(app, __dirname);
+// Enable http session
+// app.use(loopback.session({ secret: 'daily-lacto' }));
+
+var config = {};
+try {
+	config = require('../providers.json');
+} catch (err) {
+	console.trace(err);
+	process.exit(1); // fatal
+}
+
+// Initialize passport
+passportConfigurator.init();
+
+// Set up related models
+passportConfigurator.setupModels({
+ userModel: app.models.user,
+ userIdentityModel: app.models.userIdentity,
+ userCredentialModel: app.models.userCredential
+});
+// Configure passport strategies for third party auth providers
+for(var s in config) {
+ var c = config[s];
+ c.session = c.session !== false;
+ passportConfigurator.configureProvider(s, c);
+}
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
